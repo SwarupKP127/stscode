@@ -1,0 +1,701 @@
+-------------------------------------------
+https://www.youtube.com/watch?v=FFfJeb8Ec6Y&t=6895s
+--------------------------------------------
+JAVA TECHIE INTERVIEW QUESTIONS AND ANSWERS
+-----------------------------
+1.what is pillar of oops conect
+->Encapsulation=>Binding all filed as a single entry for certain rules.You need to mention all attribute as private.public setter and getter method.Example : Item
+->Inheritance====>Usually all property of parent as child. we can go with class and interface.type is same go for extends and type is different we can go for implemnets. Example InventoryServiceImpl
+->Polymorphism=>poly means single with multiple implementations.overloading anf overriding we are give polymorphism.Example====>InventoryService(overloading and overriding), InventoryController
+->Abstarction=>hiding the functionality to enduser and give them functionality.
+-------------------------------------
+2.Where did you use this concept in your project
+----------------------------------------------
+3.Explain Exception hierarchy in Inheritance
+
+https://www.tpointtech.com/exception-handling-with-method-overriding
+Exception Handling with Method Overriding in Java
+----------------------------------------------
+Parent child override scenario
+
+Exception Handling with Method Overriding in Java
+-----------------------------------------------
+can we override static and private method
+------------------------------------------------
+what is the difference of java 7 and java 8 interface
+
+Vehicle and Car example
+
+java7
+=======
+Default methods===>no
+Static methods (with body)====>no
+Lambda expressions using functional interfaces======>no
+
+
+
+java8
+=======
+Default methods===>yes
+Static methods (with body)====>yes
+Lambda expressions using functional interfaces======>yes
+---------------------------------------------
+Q)what is final, fainally amd finalize
+
+1. final (Keyword)
+
+Purpose: Used to declare constants, prevent inheritance, or prevent method overriding.
+
+Final variable (constant):
+final int MAX_VALUE = 100;
+Once assigned, its value cannot be changed.
+
+
+Final method:
+class Parent {
+    final void show() {
+        System.out.println("Hello");
+    }
+}
+
+class Child extends Parent {
+    // void show() {} // ❌ Error: cannot override final method
+}
+→ A final method cannot be overridden by subclasses.
+
+
+Final class:
+
+final class Vehicle {}
+// class Car extends Vehicle {} // ❌ Error: cannot inherit from final class
+
+
+→ A final class cannot be subclassed.
+
+
+
+
+
+2. finally (Block)
+
+Purpose: Used in exception handling to execute important code (like closing resources) whether an exception occurs or not.
+
+✅ Example:
+try {
+    int x = 10 / 0; // throws ArithmeticException
+} catch (ArithmeticException e) {
+    System.out.println("Exception caught");
+} finally {
+    System.out.println("Finally block executed");
+}
+
+
+→ The finally block always executes, even if an exception occurs or the method returns early.
+
+
+
+
+
+3. finalize() (Method)
+
+Purpose: Called by the Garbage Collector (GC) before an object is destroyed, to perform cleanup operations.
+
+✅ Example:
+class Test {
+    protected void finalize() throws Throwable {
+        System.out.println("Finalize method called");
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Test t = new Test();
+        t = null;          // make object eligible for GC
+        System.gc();       // request garbage collection
+    }
+}
+
+
+→ Output (not guaranteed):
+
+Finalize method called
+
+
+⚠️ Note: finalize() is deprecated (from Java 9 onward) — use try-with-resources or AutoCloseable instead.
+----------------------------------------------
+what is equals and hashcode method and its contract
+
+Employee example
+
+note:in depth concept need to check internal flow of hashcode and equals method.
+---------------------------------------------
+what is exception and its hierarchy
+
+https://www.tpointtech.com/exception-handling-in-java
+----------------------------------------------
+why checked exception also called compile time exception, is it occurs in compile time?
+
+com.javatechie.test.DataReader
+----------------------------------------------------
+how to write custom exception?
+
+com.javatechie.test.Test
+-----------------------------------
+throw and throws exception
+
+https://www.tpointtech.com/difference-between-throw-and-throws-in-java
+----------------------------------
+Exception tricky programming question(Exception order)
+
+com.javatechie.test.ExceptionOrder
+----------------------------------------
+try, catch and finally return statement scenario questions
+
+com.javatechie.test.Test1
+com.javatechie.test.Test2
+com.javatechie.test.Test3
+com.javatechie.test.Test4
+com.javatechie.test.Test5
+com.javatechie.test.Test6
+-------------------------------------------
+Is finally block always executed?
+
+TryCatchFinallyRetunFlow
+-----------------------------------------------
+How many way we can create string object
+
+There are two main ways to create a String object in Java:
+
+
+1. Using String Literal
+String s1 = "Java";
+
+
+✅ Explanation:
+
+Stored in String Constant Pool (SCP) inside the heap.
+
+If "Java" already exists in the pool, the same reference is reused.
+
+Example:
+
+String s1 = "Java";
+String s2 = "Java";
+
+System.out.println(s1 == s2); // true → same object in SCP
+
+
+2. Using new Keyword
+String s2 = new String("Java");
+
+
+✅ Explanation:
+
+This always creates a new object in the heap, even if "Java" already exists in the SCP.
+
+Example:
+
+String s1 = "Java";
+String s2 = new String("Java");
+
+System.out.println(s1 == s2); // false → different objects
+-----------------------------------------------------
+string object creation scenario
+
+
+
+
+
+
+Scenario 1: String Literal
+String s1 = "Java";
+String s2 = "Java";
+
+
+✅ Explanation:
+
+"Java" is stored once in the String Constant Pool (SCP).
+
+Both s1 and s2 point to the same object.
+
+🧠 Objects Created: 1
+📍 Stored In: SCP
+🔍 s1 == s2 → true
+
+
+
+
+
+
+
+Scenario 2: Using new Keyword
+String s1 = new String("Java");
+String s2 = new String("Java");
+
+
+✅ Explanation:
+
+"Java" (literal) → stored in SCP (once).
+
+Each new String("Java") creates a new object in heap.
+
+🧠 Objects Created: 3
+
+1 in SCP ("Java")
+
+2 in heap (for each new call)
+
+📍 Stored In: SCP + Heap
+🔍 s1 == s2 → false
+
+
+
+
+
+
+
+Scenario 3: Mixing Literal and new
+String s1 = "Java";
+String s2 = new String("Java");
+
+
+✅ Explanation:
+
+"Java" literal → stored in SCP.
+
+new String("Java") → new object in heap (even though SCP has same content).
+
+🧠 Objects Created: 2
+📍 Stored In: SCP (1), Heap (1)
+🔍 s1 == s2 → false
+🔍 s1.equals(s2) → true
+
+
+
+
+
+Scenario 4: With intern() Method
+String s1 = new String("Java");
+String s2 = s1.intern();
+String s3 = "Java";
+
+
+✅ Explanation:
+
+"Java" literal → stored in SCP.
+
+new String("Java") → new heap object.
+
+intern() → returns reference from SCP (same as s3).
+
+🧠 Objects Created: 2
+📍 Stored In: SCP (1), Heap (1)
+🔍 s1 == s2 → false
+🔍 s2 == s3 → true
+
+
+
+
+
+Scenario 5: Using concat()
+String s1 = "Ja";
+String s2 = "va";
+String s3 = "Ja" + "va";
+String s4 = s1 + s2;
+
+
+✅ Explanation:
+
+"Ja" + "va" (both literals) → compiler optimizes → "Java" (at compile time, SCP).
+
+s1 + s2 (runtime variables) → creates new object in heap.
+
+🧠 Objects Created:
+
+1 "Java" in SCP
+
+1 new "Java" in heap (from runtime concatenation)
+
+🔍 s3 == s4 → false
+🔍 s3.equals(s4) → true
+
+
+
+
+
+
+Scenario 6: From Char Array
+char[] arr = {'J', 'a', 'v', 'a'};
+String s1 = new String(arr);
+String s2 = new String(arr);
+
+
+✅ Explanation:
+
+Each call to new String() creates a new object in heap.
+
+No literal "Java" created in SCP unless you use "Java".
+
+🧠 Objects Created: 2
+📍 Stored In: Heap only
+🔍 s1 == s2 → false
+
+
+
+
+
+
+
+
+Scenario 7: Substring or Replace
+String s1 = "Java";
+String s2 = s1.substring(2);   // "va"
+String s3 = s1.replace('a', 'A'); // "JAvA"
+
+
+✅ Explanation:
+
+These methods create new String objects in heap (Strings are immutable).
+
+🧠 Objects Created: 2 new objects (for s2, s3)
+📍 Stored In: Heap
+🔍 s1 == s2 → false
+-----------------------------
+== content check or reference check?
+
+
+
+
+
+== → Reference Check
+
+In Java,
+== compares references (memory addresses), not content.
+
+So it checks whether both references point to the same object in memory.
+
+Example:
+
+String s1 = "Java";
+String s2 = "Java";
+String s3 = new String("Java");
+
+System.out.println(s1 == s2); // true  (same object in SCP)
+System.out.println(s1 == s3); // false (different objects)
+
+
+✅ Explanation:
+
+s1 and s2 both point to the same "Java" in the String Constant Pool (SCP).
+
+s3 is created with new, so it’s a new object in the heap.
+
+
+
+
+
+
+
+
+.equals() → Content Check
+
+The .equals() method in String class is overridden to compare content (character sequence).
+
+Example:
+
+String s1 = "Java";
+String s3 = new String("Java");
+
+System.out.println(s1.equals(s3)); // true (content is same)
+
+
+✅ Explanation:
+Even though s1 and s3 are different objects,
+.equals() checks the contents ("Java") — so it returns true.
+
+
+
+
+
+
+
+String s1 = "Hello";
+String s2 = "Hel" + "lo";     // compile-time constant
+String s3 = "Hel";
+String s4 = s3 + "lo";        // runtime concatenation
+
+System.out.println(s1 == s2); // true  → same literal, compiler optimizes
+System.out.println(s1 == s4); // false → runtime creates new object
+System.out.println(s1.equals(s4)); // true → same content
+
+
+
+
+
+== → checks reference (memory address)
+.equals() → checks content (characters)
+-------------------------------------------------------------------
+what is SCP and how it works?
+
+com.javatechie.test.StringConstantPoolExample
+--------------------------------------------------------------------
+why string is immutable
+immutable simple means unmodifiable or unchangeable.
+
+
+Key points:
+=>String pool is possible only because String is immutable in java.This way java Runtime saves a lot of heap space because different String variables can refer to the same String variable in the pool.
+
+=>If String is not immutable then it would cause a server security threat to the application.
+For example, database username and password are passed as String to get database Connection and in socket programming host and port details passed as String.
+Since String is immutable, its value can not be changed otherwise any hacker could change the refernced value to cause security issues in the application.
+
+=>Since string is immutable, it is safe for multithreading. A single string instance can be shared across different threads. This avoid the use of Synchronisation for thread safety.
+
+=>Since String is immutable, its hashcode is cached at the time of creation and it does not need to be calculated again.
+This makes it a great candidate for the Key in a Map and its processing faster than otherthan HashMap key objects.
+This is why String is most widely used as HashMap keys.
+
+
+com.javatechie.test.TestImmutableString
+-------------------------------------------------------------------
+difference between String, StringBuffer and StringBuilder
+image
+
+com.javatechie.test.TestImmutableString
+-------------------------------------------------------
+How to write your own immutable class?
+
+=>Make your class final.
+=>Declare all instance variable with private and final.
+=>say no to setter method
+=>initialize all variables in constructor.
+=>You can initialize variables in constructor
+=>Perfom cloning of mutable objects while returning from getter method.
+
+
+com.javatechie.test.EmployeeImmutable
+--------------------------------------------------------------
+which one is good to store the password in ajav string or char[] and why
+
+com.javatechie.test.SecurityCheck
+---------------------------------------------------------------------
+what is Marker interface (tagging interface)?Can we create our own marker interface?
+
+=>A marker interface is an interface that has no methods or constants inside it.Java has many built-in marker interfaces, such as serializable, Cloneable and Remote.
+
+=>It provides run-time type information about objects, so the compiler and JVM have additional information about the Objects.
+
+=>Let us take the example of the Cloneable inetrface. If we try to clone an object that does not implement interface, the JVM throws CloneNotSupportedException. Hence, the Cloneable marker
+interface is an  indiactor to the JVM that we can call the Object.clone() method.
+
+com.example.interview.marker
+-----------------------------------------------------------------------------
+what all collection you used in your project?
+
+
+List(I)=>ArrayList, LinkedList, CopyOnWriteArrayList
+
+Set(i)=>HashSet, LinkedHashSet, TreeSet, CopyOnWriteArraySet
+
+Map(I)=>HashMap, LinkedHashMap, TreeMap, ConcurrentHashMap
+
+
+image
+----------------------------------------------------------
+what is the difference between list and set?
+
+excel
+
+com.javatechie.test.ListAndSetExample
+-----------------------------------------------------
+what is the difference between ArrayLis and LinkedList?
+
+excel
+com.javatechie.test.ListExample
+---------------------------------------------------
+List object creation scenario
+
+ArrayList arrayList = new ArrayList<String>();
+note:only ArrayList will be implemented
+
+
+List<String> list=new ArrayList<>();
+//it is runtime polymorphism
+//Parent parent = new Child();
+//in future we can implement LinkedList.
+
+com.javatechie.test.ListScenario
+----------------------------------------------------
+declare list field with final keyword
+
+com.javatechie.test.FinalKeywordList
+---------------------------------------------------------
+How can i write Cusrtom ArrayList where I do not want to allow duplicate?
+
+com.javatechie.test.CustomArrayList
+-----------------------------------------------------
+why set does not allow duplicate element
+
+A Set doesn’t allow duplicates because it enforces uniqueness using equals() and hashCode().
+
+com.javatechie.test.CustomArrayList
+---------------------------------------------
+what is the difference between Comparable and Comparator?
+
+https://www.tpointtech.com/difference-between-comparable-and-comparator
+----------------------------------------------------
+multi comparing using Comparator Scenario
+
+https://www.tpointtech.com/difference-between-comparable-and-comparator
+----------------------------------------------------
+what is the differnce between fail-fast and fail safe iterator?
+
+
+
+Fail-Fast Iterator
+
+Definition:
+A fail-fast iterator immediately throws an exception (ConcurrentModificationException) if the collection is modified structurally while iterating (except through the iterator’s own methods).
+
+
+Examples:
+
+ArrayList, HashMap, LinkedList, HashSet — all use fail-fast iterators.
+
+
+
+Example code:
+
+import java.util.*;
+
+public class FailFastExample {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        list.add("A");
+        list.add("B");
+        list.add("C");
+
+        for (String s : list) {
+            System.out.println(s);
+            list.add("D"); // Structural modification during iteration
+        }
+    }
+}
+
+
+Output:
+
+A
+Exception in thread "main" java.util.ConcurrentModificationException
+
+
+
+
+
+
+Fail-Safe Iterator
+
+Definition:
+A fail-safe iterator does not throw an exception if the collection is modified during iteration.
+It works on a copy of the original collection, so changes do not affect the iterator.
+
+
+
+
+Examples:
+
+Classes from java.util.concurrent package, such as:
+
+CopyOnWriteArrayList
+
+ConcurrentHashMap
+
+
+
+
+Example code:
+
+import java.util.concurrent.*;
+
+public class FailSafeExample {
+    public static void main(String[] args) {
+        CopyOnWriteArrayList<String> list = new CopyOnWriteArrayList<>();
+        list.add("A");
+        list.add("B");
+        list.add("C");
+
+        for (String s : list) {
+            System.out.println(s);
+            list.add("D"); // Allowed, no exception
+        }
+    }
+}
+
+
+Output:
+
+A
+B
+C
+
+
+(Note: The new "D" elements are not iterated in the same loop.)
+
+
+
+
+com.javatechie.test.FailFastExample
+com.javatechie.test.FailSafeExample
+-----------------------------------------------------------------------
+what is the need of ConcurrentHashMap and How it different from HashMap?
+
+
+
+com.javatechie.test.HashMapExample
+com.javatechie.test.ConcurrentHashMapExample
+
+
+HashMap VS ConcurrentHashMap.png
+------------------------------------------------------------------------
+if we have HashTable which is already synchronised then why we need ConcurrentHashMap?
+
+Locking mechanism still same as per HashMap
+-----------------------------------------------------------------------
+we can Sunchronize a HashMap using Collections then why can not we use that instead using ConcurrentHashMap?
+
+If we used Collections.synchronizedMap(map) it will act as a synchronised HashTable only where again locking mechnaism is differnt.
+-------------------------------------------------------------------------------
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

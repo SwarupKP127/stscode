@@ -1,0 +1,46 @@
+--------------------------------------------------
+Microservices Security Using JWT | Spring Cloud Gateway | JavaTechie
+https://www.youtube.com/watch?v=MWvnmyLRUik
+-------------------------------------------------
+Java 8 Streams | Optional Usage and Best Practices | JavaTechie
+https://www.youtube.com/watch?v=4BUKaazoYyg
+-----------------------------------------------
+Singleton Design pattern in Java | Best Practice | Java Techie
+https://www.youtube.com/watch?v=3yEx0w3eYpk
+----------------------------------------------------
+Interview QA | 40+ Spring & Spring Boot Annotations Everyone Should Know | JavaTechie
+https://www.youtube.com/watch?v=htyq-mER0AE
+-----------------------------------------------------
+Spring Boot | REST API Request Validation & Exception Handling Realtime Example | JavaTechie
+https://www.youtube.com/watch?v=gPnd-hzM_6A
+-------------------------------------------------------
+Spring Boot - Spring Security + JWT Complete Tutorial With Example | javatechie
+https://www.youtube.com/watch?v=rBNOc4ymd1E
+------------------------------------------------------
+Spring Boot | Spring Data JPA Transaction Management | @Transactional | JavaTechie
+https://www.youtube.com/watch?v=95kxPSbHzVg
+--------------------------------------------
+Apache Kafka® Tutorials for Beginners | What & Why Apache Kafka? Brief introduction | JavaTechie
+https://www.youtube.com/watch?v=xGwzuz8F9k0&list=RDCMUCORuRdpN2QTCKnsuEaeK-kQ&index=2
+------------------------------------------------
+Apache Kafka® Components & Architecture Detailed Explanation in 15 min | Javatechie
+https://www.youtube.com/watch?v=HUAa1Yg9NlI
+--------------------------------------------------
+Apache Kafka® Installation On Windows & Mac | Confluent Kafka | Offset Explorer | JavaTechie
+om/watch?v=Y83O0_7OKb4&list=RDCMUCORuRdpN2QTCKnsuEaeK-kQ&index=3
+---------------------------------------------
+Apache Kafka® & Confluent Kafka CLI hands on tutorial | Producer & Consumer Flow | JavaTechie
+https://www.youtube.com/watch?v=jhPTpurb5sA
+----------------------------------------------------------
+Apache Kafka No Longer Requires ZooKeeper | Kraft Mode | Detailed Explanation | JavaTechie
+https://www.youtube.com/watch?v=k_JbBYjZ6G4&list=RDCMUCORuRdpN2QTCKnsuEaeK-kQ&index=3
+------------------------------------------------------------
+Apache Kafka® Producer Example using SpringBoot 3.x | Java Techie
+https://www.youtube.com/watch?v=rVqAoUIPO7I
+-------------------------------------------------
+Java Collection Interview Questions & Answers | Tricky Q&A | Freshers | Experience | JavaTechie
+https://www.youtube.com/watch?v=GO67C7V-IbQ&t=1597s
+-----------------------------------------------------------
+Core Java Interview Questions & Answers | Top FAQs Explained! | ‪@Javatechie‬
+https://www.youtube.com/watch?v=FFfJeb8Ec6Y&t=6895s
+----------------------------------------------------------------
