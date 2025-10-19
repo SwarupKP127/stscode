@@ -1,5 +1,7 @@
 -------------------------------------------
 https://www.youtube.com/watch?v=FFfJeb8Ec6Y&t=6895s
+
+Core Java Interview Questions & Answers | Top FAQs Explained! | ‪@Javatechie‬
 --------------------------------------------
 JAVA TECHIE INTERVIEW QUESTIONS AND ANSWERS
 -----------------------------
@@ -666,11 +668,137 @@ we can Sunchronize a HashMap using Collections then why can not we use that inst
 
 If we used Collections.synchronizedMap(map) it will act as a synchronised HashTable only where again locking mechnaism is differnt.
 -------------------------------------------------------------------------------
+How HashMap Works internally
+
+Step 1:create a map object
+Map<Employee, String> map = new HashMap<Employee, String>();
+
+every map object contains 16 bucket. it is index from 0 to 15.
+
+every bucket contains LinkedList
+
+every LinkedList contains N number of nodes.
+
+every node contains key, value, hash and next.
+
+
+step 2:
+Employee e1 = new Employee(101, "Basant");
+Employee e2 = new Employee(102, "peter");
+Employee e3 = new Employee(103, "John");
+Employee e4 = new Employee(104, "Sham");
 
 
 
- 
+step 3:
+put(K k, V v)
+hash(k)===>hashing collision
+index = hash & (n-1)
 
+
+map.put(e1,"Dev");6-->index
+map.put(e2,"QA");9---->index
+map.put(e3,"UI");6---->index
+
+e1.equals(e3)
+
+map.put(e4,"UI");13----->index
+
+
+map.put(null, "UI");--->key is null. it is always 0 index.
+
+
+hashmap diagram.png
+hashmap internal diagram.jpg
+---------------------------------------------------------------
+if key is null in HashMap then where that entry will store in map?
+
+
+
+In Java’s HashMap, if the key is null, the entry is stored in a special bucket — the one corresponding to hash code 0.
+
+Here’s how it works internally 👇
+
+🔍 Step-by-step:
+
+When you put a null key:
+
+map.put(null, "value");
+
+
+
+
+
+The HashMap calls its internal hash() method:
+
+hash = (key == null) ? 0 : key.hashCode() ^ (key.hashCode() >>> 16);
+
+
+So for null, the hash is 0.
+
+
+
+
+
+
+Then it determines the bucket index (array position) where this entry will be stored:
+
+index = (n - 1) & hash;  // where n = table size
+
+
+Since hash = 0 → index = 0.
+
+
+
+
+
+✅ Therefore, the null key entry always goes into bucket 0 of the internal array (table[0]).
+
+
+
+
+
+🧠 Additional notes:
+
+HashMap allows only one null key — if you add another, it replaces the previous value.
+
+Other keys (non-null) are stored in different buckets based on their hash code.
+
+Hashtable, by contrast, does not allow null keys or values.
+
+
+
+
+
+Example:
+HashMap<String, String> map = new HashMap<>();
+map.put(null, "Hello");
+map.put("A", "World");
+System.out.println(map.get(null)); // prints "Hello"
+
+
+👉 Internally, "Hello" is stored in bucket 0 (for key null).
+------------------------------------------
+map enhancement in java 8
+
+it provides different methods like below.
+
+forEach
+getOrDefault
+putIfAbsent
+computeIfPresent
+computeIfAbsent
+merge
+
+
+
+
+com.javatechie.test.MapEnhancementsDemo
+--------------------------------
+How treemap internally works
+
+com.javatechie.test.TreeMapExample
+---------------------------------------------------
 
 
 
