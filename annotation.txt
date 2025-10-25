@@ -1,0 +1,48 @@
+-------------------------------
+@SpringBootApplication:Combines @Configuration, @EnableAutoConfiguration and @ComponentScan
+(root one annotation is @SpringBootApplication)
+
+@EnableAutoConfiguration:this annotation based on our jar dependency means added in your pom.xml.
+For example if h2 database jar is present in our class path. if we have not added bean related to database manually. spring boot auto configuration features automatuically onfigure in our project. 
+
+@ComponentScan:It automatically scan your bean. so it can visible to IOC conainer. it can provide basePackages and basePackageClasses.
+
+@Configuration: we use @Configuration annotation as java based configuration. where we can bean definition inside the class so that spring ioc can load it.
+-----------------------------------------
+stereo type annotation:it is automatically create spring bean in applicationcontext.
+
+@Component:it is the main stereo type annotation. other three are derived from three. it is the parent annotation every where we can use it(every where rest api endpoint layer and business layer and dao layer).
+@service:we need to write my business logic.
+@RestController/@Controller:it is my web layer. we can expose my rest endpoint.
+@Repository:we need to write data base logic.
+-------------------------------------------------------
+spring core related annotation:
+
+@Configuartion:It used java based configuration. It means we do not want to spring bean life cycle. 
+It means that the class can be managed by spring IOC container as source definition.
+@Bean:It used java based configuration.
+
+com.javatechie.spring.config.BeanConfig
+com.javatechie.spring.TestBean
+com.javatechie.spring.controller.StudentController
+@GetMapping("/all")
+    public ResponseEntity<List<Student>> getStudents() {
+    	//when we access this api then access method of TestBean class.
+    	//http://localhost:8080/students/all--->hit in the browser
+    	//[{"id":101,"name":"Basant","rollNo":14,"dept":"Science"},{"id":102,"name":"Santosh","rollNo":48,"dept":"Arts"},{"id":103,"name":"Rajesh","rollNo":16,"dept":"Commerce"},{"id":104,"name":"Sam","rollNo":12,"dept":"Arts"}]---->output in browser
+    	testBean.method();
+        System.out.println("mail properties : "+ mailProps);
+        return ResponseEntity.ok(studentService.getStudents());
+    }
+
+
+@Autowired:
+@Qualifier:
+@Lazy:
+@Value:
+@PropertySource:
+@ConfigurationProperties:
+@Profile:
+@Scope:
+-----------------------------------------------------------
+
