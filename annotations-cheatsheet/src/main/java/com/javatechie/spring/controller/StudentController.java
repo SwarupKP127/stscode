@@ -29,7 +29,7 @@ public class StudentController {
     @Autowired
     private TestBean testBean;
 
-    @Autowired
+	@Autowired
     private LazyLoadingBean lazyLoadingBean;
 
     @Value("${mail.from}")
@@ -71,6 +71,7 @@ public class StudentController {
     	//[{"id":101,"name":"Basant","rollNo":14,"dept":"Science"},{"id":102,"name":"Santosh","rollNo":48,"dept":"Arts"},{"id":103,"name":"Rajesh","rollNo":16,"dept":"Commerce"},{"id":104,"name":"Sam","rollNo":12,"dept":"Arts"}]---->output in browser
     	//we did not create object of testBean. Spring IOC will create object of testBean. 
     	testBean.method();
+    	System.out.println("Mail props load using @Value : "+from + " : " +host+ " : "+port);
         System.out.println("mail properties : "+ mailProps);
         return ResponseEntity.ok(studentService.getStudents());
     }

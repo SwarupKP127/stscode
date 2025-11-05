@@ -25,7 +25,7 @@ public class AnnotationCheatsheetApplication {
     @PostConstruct
     public void initStudents() {
         studentRepository.saveAll(Stream.of(
-                        new Student(101, "Basant", 14, "Science"),
+                        new Student(101, "Sikiri kanchia", 14, "Science"),
                         new Student(102, "Santosh", 48, "Arts"),
                         new Student(103, "Rajesh", 16, "Commerce"),
                         new Student(104, "Sam", 12, "Arts"))
